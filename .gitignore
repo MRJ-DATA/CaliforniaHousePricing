@@ -5,6 +5,12 @@ __pycache__/
 
 # C extensions
 *.so
+# Ignore the Conda virtual environment folder
+venv/
+
+# Ignore cache and compiled Python files
+__pycache__/
+*.pyc
 
 # Distribution / packaging
 .Python
