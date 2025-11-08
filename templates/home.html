@@ -1,3 +1,67 @@
-<h1>
-    HelloWorld
-</h1>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California House Price Predictor</title>
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .login {
+            background-color: white;
+            display: inline-block;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 8px;
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h1>California House Price Prediction</h1>
+
+        <!-- Main input for receiving query to our ML -->
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="text" name="MedInc" placeholder="Median Income" required><br>
+            <input type="text" name="HouseAge" placeholder="House Age" required><br>
+            <input type="text" name="AveRooms" placeholder="Average Rooms" required><br>
+            <input type="text" name="AveBedrms" placeholder="Average Bedrooms" required><br>
+            <input type="text" name="Population" placeholder="Population" required><br>
+            <input type="text" name="AveOccup" placeholder="Average Occupancy" required><br>
+            <input type="text" name="Latitude" placeholder="Latitude" required><br>
+            <input type="text" name="Longitude" placeholder="Longitude" required><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- Display prediction result -->
+        <h2>{{ prediction_text }}</h2>
+    </div>
+</body>
+</html>
